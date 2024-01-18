@@ -7,7 +7,18 @@ class App extends Component {
   };
 
   render() {
-    return <div>Phonebook</div>;
+    return (
+      <div>
+        <h2>Phonebook</h2>
+        <input type="text" name="name" required />
+        <button>Add contact</button>
+
+        <h2>Contacts</h2>
+        <ul>
+          <li>Rose Simpson</li>
+        </ul>
+      </div>
+    );
   }
 }
 
