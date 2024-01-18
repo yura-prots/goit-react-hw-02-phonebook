@@ -1,22 +1,23 @@
 import { Component } from 'react';
 
+import ContactsList from 'components/ContactsList';
+
+import initialState from 'db/contacts.json';
+
 class App extends Component {
   state = {
-    contacts: [],
+    contacts: initialState,
     name: '',
   };
 
   render() {
+    const { contacts } = this.state;
+
     return (
       <div>
-        <h2>Phonebook</h2>
-        <input type="text" name="name" required />
-        <button>Add contact</button>
-
         <h2>Contacts</h2>
-        <ul>
-          <li>Rose Simpson</li>
-        </ul>
+
+        <ContactsList contacts={contacts} />
       </div>
     );
   }
