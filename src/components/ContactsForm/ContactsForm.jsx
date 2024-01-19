@@ -1,13 +1,13 @@
 import { Formik } from 'formik';
 
-import { StyledForm, StyledField } from './ContactsForm.styled';
+import { StyledForm, StyledGroup, StyledField } from './ContactsForm.styled';
 
 const ContactsForm = ({ onAdd }) => (
   <div>
     <Formik
       initialValues={{
         name: '',
-        number: '',
+        phone: '',
       }}
       onSubmit={(values, actions) => {
         onAdd(values);
@@ -15,15 +15,15 @@ const ContactsForm = ({ onAdd }) => (
       }}
     >
       <StyledForm>
-        <label>
+        <StyledGroup>
           Name
           <StyledField id="name" type="text" name="name" required />
-        </label>
+        </StyledGroup>
 
-        <label>
-          Number
-          <StyledField id="number" type="tel" name="number" required />
-        </label>
+        <StyledGroup>
+          Phone
+          <StyledField id="phone" type="tel" name="phone" required />
+        </StyledGroup>
 
         <button type="submit">Add contact</button>
       </StyledForm>
