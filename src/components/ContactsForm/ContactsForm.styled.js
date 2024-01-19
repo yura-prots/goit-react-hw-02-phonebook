@@ -1,19 +1,27 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import {
+  Form as FormikForm,
+  Field as FormikField,
+  ErrorMessage as FormikError,
+} from 'formik';
 
-export const StyledForm = styled(Form)`
+export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   max-width: 350px;
   gap: 8px;
 `;
 
-export const StyledField = styled(Field)`
-  padding: 4px;
-`;
-
-export const StyledGroup = styled.label`
+export const FormGroup = styled.label`
   display: flex;
   flex-direction: column;
   gap: 4px;
+`;
+
+export const Field = styled(FormikField)`
+  padding: 4px;
+`;
+
+export const ErrorMessage = styled(FormikError)`
+  color: ${p => p.theme.colors.red};
 `;
