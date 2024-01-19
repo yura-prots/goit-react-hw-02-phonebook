@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     contacts: initialState,
     name: '',
-    number: null,
+    number: '',
   };
 
   render() {
