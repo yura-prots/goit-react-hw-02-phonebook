@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 
 import { StyledForm, StyledField } from './ContactsForm.styled';
 
-const ContactsForm = () => (
+const ContactsForm = ({ onAdd }) => (
   <div>
     <Formik
       initialValues={{
@@ -10,8 +10,7 @@ const ContactsForm = () => (
         number: '',
       }}
       onSubmit={(values, actions) => {
-        console.log(values);
-
+        onAdd(values);
         actions.resetForm();
       }}
     >
