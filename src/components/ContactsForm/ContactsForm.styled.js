@@ -25,3 +25,11 @@ export const Field = styled(FormikField)`
 export const ErrorMessage = styled(FormikError)`
   color: ${p => p.theme.colors.red};
 `;
+
+export const Button = styled.button`
+  width: 150px;
+  height: 20px;
+  border-radius: 8px;
+  border: transparent;
+  outline: 1px solid tomato;
+`;

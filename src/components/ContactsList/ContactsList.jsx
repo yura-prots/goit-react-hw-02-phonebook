@@ -1,14 +1,19 @@
-const ContactsList = ({ contacts }) => {
-  return contacts.map(contact => {
-    const { id, name, phone } = contact;
+import PropTypes from 'prop-types';
 
-    return (
-      <li key={id}>
-        <span>{name}:</span>
-        <span>{phone}</span>
-      </li>
-    );
-  });
+import ListItem from './ListItem';
+
+const ContactsList = ({ contacts }) => {
+  return (
+    <div>
+      <ul>
+        <ListItem contacts={contacts} />
+      </ul>
+    </div>
+  );
+};
+
+ContactsList.propTypes = {
+  contacts: PropTypes.array.isRequired,
 };
 
 export default ContactsList;
