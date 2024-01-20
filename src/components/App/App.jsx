@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 
 import ContactsForm from 'components/ContactsForm';
 import ContactsList from 'components/ContactsList';
+import ContactsFilter from 'components/ContactsFilter';
 
 import initialState from 'db/contacts.json';
 
@@ -11,6 +12,7 @@ class App extends Component {
     contacts: initialState,
     name: '',
     phone: '',
+    filter: '',
   };
 
   addContact = newContact => {
@@ -27,8 +29,16 @@ class App extends Component {
     });
   };
 
+  findContact = searchQuery => {
+    this.setState({ filter: searchQuery });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
+
+    const visibleContactsList = contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
+    });
 
     return (
       <div>
@@ -36,7 +46,11 @@ class App extends Component {
         <ContactsForm onAdd={this.addContact} />
 
         <h2>Contacts</h2>
-        <ContactsList contacts={contacts} />
+
+        <p>Find contact by name</p>
+        <ContactsFilter filter={filter} toFind={this.findContact} />
+
+        <ContactsList contacts={visibleContactsList} />
       </div>
     );
   }
