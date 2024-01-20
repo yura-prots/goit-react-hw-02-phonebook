@@ -10,12 +10,19 @@ import initialState from 'db/contacts.json';
 class App extends Component {
   state = {
     contacts: initialState,
-    name: '',
-    phone: '',
     filter: '',
   };
 
   addContact = newContact => {
+    const isDuplicate = this.state.contacts.find(
+      contact => contact.name === newContact.name
+    );
+
+    if (isDuplicate) {
+      alert(`${newContact.name} is already in contacts`);
+      return;
+    }
+
     this.setState(prevState => {
       return {
         contacts: [
@@ -36,7 +43,7 @@ class App extends Component {
   render() {
     const { contacts, filter } = this.state;
 
-    const visibleContactsList = contacts.filter(contact => {
+    const visibleContacts = contacts.filter(contact => {
       return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
 
@@ -46,11 +53,8 @@ class App extends Component {
         <ContactsForm onAdd={this.addContact} />
 
         <h2>Contacts</h2>
-
-        <p>Find contact by name</p>
-        <ContactsFilter filter={filter} toFind={this.findContact} />
-
-        <ContactsList contacts={visibleContactsList} />
+        <ContactsFilter toFind={this.findContact} />
+        <ContactsList contacts={visibleContacts} />
       </div>
     );
   }
