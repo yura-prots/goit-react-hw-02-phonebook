@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import bg from '../../images/bg.jpg';
+
 export const Container = styled.div`
   position: relative;
   display: flex;
@@ -13,7 +15,9 @@ export const Container = styled.div`
   margin-top: 25px;
   border-radius: 8px;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  /* background-color: ${({ theme }) => theme.colors.appBg}; */
+  background-image: url(${bg});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Title = styled.h2`

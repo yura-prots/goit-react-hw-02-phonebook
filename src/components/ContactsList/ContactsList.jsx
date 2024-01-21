@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
+import { List } from './ContactsList.styled';
 
 const ContactsList = ({ contacts, toDelete }) => {
   return (
     <div>
-      <ul>
+      <List>
         <ListItem contacts={contacts} toDelete={toDelete} />
-      </ul>
+      </List>
     </div>
   );
 };

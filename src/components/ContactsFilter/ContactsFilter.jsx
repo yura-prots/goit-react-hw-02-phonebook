@@ -5,8 +5,11 @@ import { Filter } from './ContactsFilter.styled';
 const ContactsFilter = ({ toFind }) => {
   return (
     <div>
-      <p>Find contact by name</p>
-      <Filter type="text" onChange={e => toFind(e.target.value)} />
+      <Filter
+        type="text"
+        onChange={e => toFind(e.target.value)}
+        placeholder="Find contact by name"
+      />
     </div>
   );
 };
