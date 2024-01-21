@@ -9,7 +9,9 @@ const ListItem = ({ contacts, toDelete }) => {
       <Item key={id}>
         <span>{name}:</span>
         <span>{phone}</span>
-        <DeleteBtn onClick={() => toDelete(id)}>Delete</DeleteBtn>
+        <DeleteBtn type="button" onClick={() => toDelete(id)}>
+          Delete
+        </DeleteBtn>
       </Item>
     );
   });
