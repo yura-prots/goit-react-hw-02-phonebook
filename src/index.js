@@ -10,6 +10,9 @@ const theme = {
     black: '#000000',
     white: '#FFFFFF',
     red: '#FF0000',
+    tomato: '#FF6347',
+    green: '#90EE90',
+    violet: '#EE82EE',
   },
 };
 

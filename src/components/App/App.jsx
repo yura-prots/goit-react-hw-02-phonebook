@@ -1,11 +1,13 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
+import initialState from 'db/contacts.json';
+
 import ContactsForm from 'components/ContactsForm';
 import ContactsList from 'components/ContactsList';
 import ContactsFilter from 'components/ContactsFilter';
 
-import initialState from 'db/contacts.json';
+import { Container, Title } from './App.styled';
 
 class App extends Component {
   state = {
@@ -56,17 +58,17 @@ class App extends Component {
     });
 
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Container>
+        <Title>Phonebook</Title>
         <ContactsForm onAdd={this.addContact} />
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <ContactsFilter toFind={this.findContact} />
         <ContactsList
           contacts={visibleContacts}
           toDelete={this.deleteContact}
         />
-      </div>
+      </Container>
     );
   }
 }

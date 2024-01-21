@@ -29,7 +29,7 @@ const ContactsForm = ({ onAdd }) => {
           actions.resetForm();
         }}
       >
-        <Form>
+        <Form autoComplete="off">
           <FormGroup>
             Name
             <Field id="name" type="text" name="name" required />

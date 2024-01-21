@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 
+import { Filter } from './ContactsFilter.styled';
+
 const ContactsFilter = ({ toFind }) => {
   return (
     <div>
       <p>Find contact by name</p>
-      <input type="text" onChange={e => toFind(e.target.value)} />;
+      <Filter type="text" onChange={e => toFind(e.target.value)} />
     </div>
   );
 };
