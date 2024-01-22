@@ -63,7 +63,7 @@ class App extends Component {
         <ContactsForm onAdd={this.addContact} />
 
         <Title>Contacts</Title>
-        <ContactsFilter toFind={this.findContact} />
+        <ContactsFilter filter={filter} toFind={this.findContact} />
         <ContactsList
           contacts={visibleContacts}
           toDelete={this.deleteContact}
