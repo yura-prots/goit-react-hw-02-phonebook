@@ -7,7 +7,9 @@ const ContactsList = ({ contacts, toDelete }) => {
   return (
     <div>
       <List>
-        <ListItem contacts={contacts} toDelete={toDelete} />
+        {contacts.map(contact => (
+          <ListItem key={contact.id} contact={contact} toDelete={toDelete} />
+        ))}
       </List>
     </div>
   );
